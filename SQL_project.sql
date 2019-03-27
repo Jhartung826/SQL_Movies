@@ -97,3 +97,25 @@ WHERE actor_id IN
  )
 );
 
+SELECT customer.first_name, customer.last_name, customer.email 
+FROM customer
+INNER JOIN address ON
+address.address_id = customer.address_id
+INNER JOIN city ON
+address.city_id = city.city_id
+Inner JOIN Country ON
+country.country_id = city.country_id
+WHERE country.country = "Canada"
+GROUP BY customer.email;
+
+SELECT film.title
+FROM film
+INNER JOIN film_category ON
+film.film_id = film_category.film_id
+INNER JOIN category ON
+category.category_id = film_category.category_id
+WHERE category.name = "Family"
+GROUP BY film.title;
+
+
+
